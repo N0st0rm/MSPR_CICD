@@ -22,7 +22,10 @@ Connection conn = DriverManager.getConnection(url, user, password);
         String sql = "SELECT idFilm, titre, année FROM Film WHERE année >= 2000";
         PreparedStatement pstmt = conn.prepareStatement(sql);
         ResultSet rs = pstmt.executeQuery();
-
+<form method="get">
+        <input name="annee" type="text" value="<% out.println(annee); %>">
+        <input type="submit">
+    </form>
         // Afficher les résultats (à adapter selon vos besoins)
         while (rs.next()) {
             String colonne1 = rs.getString("idFilm");
